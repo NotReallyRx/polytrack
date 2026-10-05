@@ -1,0 +1,29 @@
+{
+  "productName": "PolyTrack",
+  "version": "0.3.1",
+  "private": true,
+  "main": "electron/main.js",
+  "devDependencies": {
+    "@types/three": "^0.155.1",
+    "@types/pako": "^0.2.0",
+    "electron": "^27.0.0",
+    "electron-packager": "^17.1.2",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.2",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "three": "^0.155.0",
+    "@jaames/iro": "^5.5.2",
+    "js-sha256": "^0.10.1",
+    "pako": "^2.1.0"
+  },
+  "scripts": {
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack --mode=production",
+    "electron": "electron .",
+    "prebuild-electron": "webpack --mode=production",
+    "build-electron": "node electron/build.js"
+  }
+}

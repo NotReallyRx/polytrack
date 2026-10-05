@@ -1,0 +1,83 @@
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+
+      - name: Install asar
+        run: npm install -g @electron/asar
+
+      - name: Create/update version releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for dir in */; do
+              version="${dir%/}"
+
+              if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+                  continue
+              fi
+
+              asar pack "$dir" app.asar
+              zip -r -q "${version}.zip" "$dir"
+              tar -czf "${version}.tar.gz" "$dir"
+
+              if gh release view "$version" >/dev/null 2>&1; then
+                  gh release upload "$version" \
+                      app.asar \
+                      "${version}.zip" \
+                      "${version}.tar.gz" \
+                      --clobber
+              else
+                  gh release create "$version" \
+                      app.asar \
+                      "${version}.zip" \
+                      "${version}.tar.gz" \
+                      --title "$version" \
+                      --notes "PolyTrack ${version}" \
+                      --target main
+              fi
+
+              rm -f \
+                  app.asar \
+                  "${version}.zip" \
+                  "${version}.tar.gz"
+          done
+

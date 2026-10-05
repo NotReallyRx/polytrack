@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<style>
+			@font-face {
+				font-family:AldoTheApache;
+				src:url("aldotheapache.ttf");
+			}
+
+			html, body {
+				margin:0;
+				padding:0;
+				width:100%;
+				height:100%;
+				overflow:hidden;
+
+				background:#000;
+			}
+
+			* {
+				font-family: AldoTheApache, Arial, sans-serif;
+				line-height: 1;
+			}
+
+			#screen {
+				margin:0;
+				padding:0;
+				width:100%;
+				height:100%;
+			}
+
+			#ui {
+				position:absolute;
+				left:0;
+				top:0;
+				width:100%;
+				height:100%;
+				pointer-events:none;
+				-webkit-user-select:none;
+				-moz-user-select:none;
+				-ms-user-select:none;
+				user-select:none;
+			}
+
+			::-webkit-scrollbar {
+				width:8px;
+				background-color:#222;
+			}
+			::-webkit-scrollbar-thumb {
+				border-radius:4px;
+				background-color:#72c272;
+			}
+
+			::selection {
+				background-color: #428d42;
+				color: #fff;
+			}
+
+			body {
+				scrollbar-color:#72c272 #222;
+			}
+
+			.hide-cursor {
+				cursor: none;
+			}
+
+			.hidden {
+				display:none;
+			}
+		</style>
+
+		<link rel="stylesheet" type="text/css" href="css/message_box_ui.css">
+		<link rel="stylesheet" type="text/css" href="css/customization.css">
+		<link rel="stylesheet" type="text/css" href="css/debug_ui.css">
+		<link rel="stylesheet" type="text/css" href="css/editor.css">
+		<link rel="stylesheet" type="text/css" href="css/hint.css">
+		<link rel="stylesheet" type="text/css" href="css/loading_ui.css">
+		<link rel="stylesheet" type="text/css" href="css/menu.css">
+		<link rel="stylesheet" type="text/css" href="css/speedometer.css">
+		<link rel="stylesheet" type="text/css" href="css/time_announcer.css">
+		<link rel="stylesheet" type="text/css" href="css/timer.css">
+		<link rel="stylesheet" type="text/css" href="css/track_export_ui.css">
+		<link rel="stylesheet" type="text/css" href="css/track_selection_ui.css">
+		<link rel="stylesheet" type="text/css" href="css/transition_system.css">
+	</head>
+	<body>
+		<canvas id="screen"></canvas>
+		<div id="ui"></div>
+		<div id="transition-layer"></div>
+
+		<script src="lib/ammo.js" defer></script>
+
+		<script type="module" src="dist/bundle.js" defer></script>
+	</body>
+</html>

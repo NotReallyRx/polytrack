@@ -1,0 +1,70 @@
+
+.time-announcer {
+	position: absolute;
+	left: 0;
+	top: 35%;
+	width: 0;
+	overflow: hidden;
+	animation: 0.5s ease-out 0s 1 normal forwards running time-announcer-animation;
+}
+
+.time-announcer > .record {
+	margin: 0;
+	padding: 0;
+	font-size: 48px;
+	text-shadow: 0 0 5px #000;
+	color: #96ff96;
+	text-align: center;
+	opacity: 0;
+	animation: 0.5s ease-out 1s 1 normal forwards running time-announcer-record-animation;
+}
+
+.time-announcer > .current {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	background-color: #333;
+	border-top: 4px solid #555;
+	border-bottom: 4px solid #555;
+	font-size: 48px;
+	text-shadow: 0 0 5px #000;
+	color: #fff;
+	text-align: center;
+}
+.time-announcer > .difference {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	background-color: rgba(51, 51, 51, 0.9);
+	border-bottom: 4px solid #555;
+	text-shadow: 0 0 5px #000;
+	color: #96ff96;
+	font-size: 30px;
+	text-align: center;
+}
+.time-announcer > p.red {
+	color: #ff9696;
+}
+
+@keyframes time-announcer-record-animation {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes time-announcer-animation {
+	from {
+		width: 0;
+		opacity: 0;
+	}
+
+	to {
+		width: 100%;
+		opacity: 1;
+	}
+}

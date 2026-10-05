@@ -1,0 +1,95 @@
+
+.track-export > .background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(20,30,20,0.5);
+	pointer-events: auto;
+}
+
+.track-export > .box {
+	position: absolute;
+	left: calc(50% - 80% / 2);
+	top: 20px;
+	z-index: 2;
+	margin: 0;
+	padding: 10px;
+	box-sizing: border-box;
+	width: 80%;
+	height: calc(100% - 20px * 2);
+	background:#323232;
+	border-radius:5px;
+	border:10px solid;
+	border-image:url("../images/outline_gray.svg");
+	border-image-slice:20;
+	opacity: 0.9;
+	text-align: center;
+}
+.track-export.menu-track-export > .box {
+	top: 250px;
+	height: calc(100% - 250px - 20px);
+}
+
+.track-export > .box > .bar {
+	text-align: left;
+	pointer-events: auto;
+}
+.track-export > .box > .bar > .button {
+	display: inline-block;
+	margin:0;
+	padding:0 8px;
+	background:#323232;
+	border-radius:5px;
+	border:10px solid;
+	border-image:url("../images/outline_green.svg");
+	border-image-slice:20;
+	-webkit-filter:drop-shadow(0 0 3px #000);
+	filter:drop-shadow(0 0 3px #000);
+	color:#96ff96;
+	font-size:32px;
+	text-shadow:0 0 5px #000;
+
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	cursor:pointer;
+}
+.track-export > .box > .bar > .button.right {
+	float: right;
+}
+.track-export > .box > .bar > .button:hover {
+	background:#3c3c3c;
+}
+.track-export > .box > .bar > .button:active {
+	background:#1e1e1e;
+}
+.track-export > .box > .bar > .button > img {
+	margin:2px -6px;
+	padding:0;
+	height:32px;
+	vertical-align:middle;
+	-webkit-filter:drop-shadow(0 0 3px #000);
+	filter:drop-shadow(0 0 3px #000);
+}
+
+.track-export > .box > textarea {
+	margin: 10px 0 0 0;
+	padding: 10px;
+	box-sizing: border-box;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: calc(100% - 60px - 10px);
+	max-height: calc(100% - 60px - 10px);
+	pointer-events: auto;
+	background-color: #222;
+	border: none;
+	resize: none;
+	color: #fff;
+	font-family: Arial;
+	font-weight: bold;
+	word-break: break-all;
+}

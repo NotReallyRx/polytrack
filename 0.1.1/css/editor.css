@@ -1,0 +1,160 @@
+
+.editor {
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+}
+
+.editor > .top {
+	display:block;
+	margin:0;
+	padding:0;
+}
+
+.editor > .top > .button-bar {
+	height: 56px;
+	background: #333;
+	border-bottom: 4px solid #555;
+	box-shadow: 0 0 10px #000;
+	white-space: nowrap;
+}
+.editor > .top > .button-bar > button {
+	display:inline-block;
+	margin:4px 2px;
+	padding:0 8px;
+	vertical-align: middle;
+	background:#323232;
+	border-radius:5px;
+	border:6px solid;
+	border-image:url("../images/outline_green.svg");
+	border-image-slice:20;
+	-webkit-filter:drop-shadow(0 0 3px #000);
+	filter:drop-shadow(0 0 3px #000);
+	color:#96ff96;
+	font-size:32px;
+	text-shadow:0 0 5px #000;
+
+	pointer-events:auto;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	cursor:pointer;
+}
+.editor > .top > .button-bar > button:hover {
+	background:#3c3c3c;
+}
+.editor > .top > .button-bar > button:active {
+	background:#1e1e1e;
+}
+.editor > .top > .button-bar > button > img {
+	margin:2px -6px;
+	padding:0;
+	height:32px;
+	vertical-align:middle;
+	-webkit-filter:drop-shadow(0 0 3px #000);
+	filter:drop-shadow(0 0 3px #000);
+}
+
+.editor > .top > .trackname-input {
+	display: inline-block;
+	margin: 0 0 0 0;
+	padding: 6px;
+	font-size: 24px;
+	color: #96ff96;
+	text-shadow: 0 0 5px #000;
+	background: rgba(32, 32, 32, 0.75);
+	border-bottom:4px solid #555;
+	border-right:4px solid #555;
+	box-shadow:0 0 10px #000;
+	clip-path: inset(0 -20px -20px 0);
+}
+
+.editor > .top > .trackname-input > input {
+	margin: 0;
+	padding: 4px 8px;
+	border-radius: 6px;
+	font-size: 24px;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	color: #96ff96;
+	text-shadow:0 0 5px #000;
+	background-color: rgba(0,0,0,0.25);
+	border: 2px solid #666;
+	box-shadow: inset 0 0 4px #000;
+	pointer-events:auto;
+}
+
+.editor > .side {
+	position:absolute;
+	top: 60px;
+	right: 0;
+	margin:0;
+	padding:0;
+	height:calc(100% - 60px);
+	background:#333;
+	border-left:solid 4px #555;
+	box-shadow:0 0 10px #000;
+	clip-path: inset(0 0 0 -20px);
+	overflow-x:hidden;
+	overflow-y:scroll;
+	pointer-events:auto;
+}
+.editor > .side > button {
+	display:block;
+	margin:8px;
+	padding:10px;
+	background-color: transparent;
+	border:10px solid;
+	border-image:url("../images/outline_gray.svg");
+	border-image-slice:20;
+	border-radius:10px;
+	cursor:pointer;
+}
+.editor > .side > button:hover {
+	background-color:#3c3c3c;
+}
+.editor > .side > button:active {
+	background-color:#282828;
+}
+.editor > .side > button.selected {
+	background-color:#646e64;
+	border-image:url("../images/outline_green.svg");
+	border-image-slice:20;
+}
+.editor > .side > button > img {
+	display:block;
+	margin:0;
+	padding:0;
+	width:128px;
+	-webkit-filter:drop-shadow(0 0 5px #000);
+	filter:drop-shadow(0 0 5px #000);
+	pointer-events:none;
+}
+
+.editor > .message-box {
+	margin: 10px;
+	padding: 0;
+	position: absolute;
+	font-size: 30px;
+	color: #ff9696;
+	text-shadow: 0 0 5px #000;
+	pointer-events: none;
+
+	left: -10px;
+	opacity: 0;
+}
+.editor > .message-box.green {
+	color: #96ff96;
+}
+.editor > .message-box.show {
+	left: 0;
+	opacity: 1;
+	transition: opacity 0.25s ease-in-out, left 0.25s ease-in-out;
+}
+.editor > .message-box.hide {
+	left: 0;
+	opacity: 0;
+	transition: opacity 0.25s ease-in-out, left 0.25s ease-in-out;
+}
